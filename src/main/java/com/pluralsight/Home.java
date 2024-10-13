@@ -19,6 +19,14 @@ public class Home {
             case "D":
                 AddDeposit();
                 break;
+            case "P":
+                MakePayment();
+                break;
+            case "L":
+                Ledger();
+                break;
+            case "X":
+                Exit();
             default:
                 System.out.println("Sorry! We do not have that option. Please input another character.");
                 HomeScreen();
