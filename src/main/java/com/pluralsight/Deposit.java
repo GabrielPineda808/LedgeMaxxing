@@ -3,11 +3,9 @@ package com.pluralsight;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 import static com.pluralsight.Home.*;
 import static com.pluralsight.Quit.Exit;
@@ -25,20 +23,22 @@ public class Deposit {
                 "\nIf using a custom date and time have please have that ready as well.");
 
         try{
-            DateTimeFormatter hourFormat = DateTimeFormatter.ofPattern("hh:mm:ss");
-            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            DateTimeFormatter hourFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
+
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-M-d");
+
             while(true){
                 String description = ans("\nPlease enter a description for your deposit: ");
-                inputerCheck(description);
+                inputChecker(description);
 
                 String vendor = ans("\nPlease enter the vendor for your deposit");
-                inputerCheck(vendor);
+                inputChecker(vendor);
 
                 String amount = ans("\nPlease enter the amount for your deposit");
-                inputerCheck(amount);
+                inputChecker(amount);
 
                 String dt = ans("\nWould you like to use a custom date and time for this deposit? Enter yes or no: ");
-                inputerCheck(dt);
+                inputChecker(dt);
 
                 LocalDate date = LocalDate.now() ;
                 String dateString = date.format(dateFormatter);
@@ -52,13 +52,13 @@ public class Deposit {
 
                 if (dt.equalsIgnoreCase("YES")) {
                     String cd = ans("\nPlease enter the custom date for your deposit in YYYY-MM-DD format: ");
-                    inputerCheck(cd);
-                    LocalDate customDate = (LocalDate) dateFormatter.parse(cd);
+                    inputChecker(cd);
+                    LocalDate customDate = LocalDate.parse(cd,dateFormatter);
 
 
-                    String ct = ans("\nPlease enter the custom time for your deposit in HH:MM:SS format: ");
-                    inputerCheck(ct);
-                    Time customTime = (Time) hourFormat.parse(ct);
+                    String ct = ans("\nPlease enter the custom time for your deposit in HH:MM format: ") ;
+                    inputChecker(ct);
+                    LocalTime customTime = LocalTime.parse(ct+ ":01",hourFormat);
 
                      x = new Transaction(customDate.toString(),customTime.toString(),description,vendor,amount);
                 }else{
@@ -72,6 +72,7 @@ public class Deposit {
                 br.newLine();
                 br.close();
                 String close = ans("\nWould you like to add another deposit? Enter yes or no: ");
+                inputChecker(close);
                 if(close.equalsIgnoreCase("no")){
                     HomeScreen();
                 }
@@ -83,7 +84,7 @@ public class Deposit {
 
     }
 
-    public static void inputerCheck(String input) throws IOException, InterruptedException {
+    public static void inputChecker(String input) throws IOException, InterruptedException {
         if(input.equalsIgnoreCase("H")){
             HomeScreen();
         }else if(input.equalsIgnoreCase("x")){
