@@ -36,6 +36,7 @@ public class Home {
                 System.out.println("\nSorry! We do not have that option. Please input another character.");
                 Thread.sleep(700);
                 HomeScreen();
+                break;
         }
     }
 
