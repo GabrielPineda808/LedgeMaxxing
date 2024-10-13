@@ -39,5 +39,9 @@ public class Home {
         }
     }
 
+    public static String ans(String m){
+        System.out.println(m);
+        return s.nextLine();
+    }
 
 }
