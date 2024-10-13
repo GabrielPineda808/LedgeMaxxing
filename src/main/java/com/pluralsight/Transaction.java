@@ -1,26 +1,26 @@
 package com.pluralsight;
 
-public class transaction {
-    private String time;
+public class Transaction {
+    private String date;
     private String hour;
     private String description;
     private String vendor;
     private String amount;
 
-    public transaction(String time, String hour, String description, String vendor, String amount) {
-        this.time = time;
+    public Transaction(String date, String hour, String description, String vendor, String amount) {
+        this.date = date;
         this.hour = hour;
         this.description = description;
         this.vendor = vendor;
         this.amount = amount;
     }
 
-    public String getTime() {
-        return time;
+    public String getDate() {
+        return date;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setDate(String Date) {
+        this.date = date;
     }
 
     public String getHour() {
@@ -53,5 +53,9 @@ public class transaction {
 
     public void setAmount(String amount) {
         this.amount = amount;
+    }
+
+    public void display(){
+        System.out.println(date +" | "+ hour+" | " + description+" | " + vendor+" | " + amount);
     }
 }
