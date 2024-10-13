@@ -1,4 +1,5 @@
 package com.pluralsight;
+import java.io.IOException;
 import java.util.Scanner;
 
 import static com.pluralsight.Deposit.AddDeposit;
@@ -8,16 +9,15 @@ import static com.pluralsight.Quit.Exit;
 
 public class Home {
     static Scanner s = new Scanner(System.in);
-    public static void HomeScreen() throws InterruptedException {
-        System.out.print("\nWelcome to LedgeMaxxer! Thank you for using our service. \n" +
+    public static void HomeScreen() throws InterruptedException, IOException {
+
+        String ans = ans("\nWelcome to LedgeMaxxer! Thank you for using our service. \n" +
                 "Please enter a character that corresponds with one of the options below.\n" +
                 "D) Add Deposit\n" +
                 "P) Make Payment(Debit)\n" +
                 "L) Ledger\n" +
                 "X) Exit\n" +
                 "Enter here: ");
-
-        String ans = s.nextLine();
 
         switch (ans.toUpperCase()){
             case "D":

@@ -4,6 +4,7 @@ import static com.pluralsight.Home.ans;
 
 public class Deposit {
     public static void AddDeposit() throws InterruptedException {
+
         Thread.sleep(500);
 
         System.out.println("\nYou are now on the Add Deposit Screen!");

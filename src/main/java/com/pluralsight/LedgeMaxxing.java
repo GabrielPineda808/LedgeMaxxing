@@ -1,10 +1,9 @@
 package com.pluralsight;
-import java.util.Scanner;
+import java.io.IOException;
 import static com.pluralsight.Home.HomeScreen;
 
 public class LedgeMaxxing {
-    static Scanner s = new Scanner(System.in);
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
         HomeScreen();
     }
 }
