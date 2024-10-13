@@ -2,6 +2,9 @@ package com.pluralsight;
 import java.util.Scanner;
 
 import static com.pluralsight.Deposit.AddDeposit;
+import static com.pluralsight.LedgerScreen.Ledger;
+import static com.pluralsight.Payment.MakePayment;
+import static com.pluralsight.Quit.Exit;
 
 public class Home {
     static Scanner s = new Scanner(System.in);
