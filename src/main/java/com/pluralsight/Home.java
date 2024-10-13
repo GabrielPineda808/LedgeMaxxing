@@ -8,8 +8,8 @@ import static com.pluralsight.Quit.Exit;
 
 public class Home {
     static Scanner s = new Scanner(System.in);
-    public static void HomeScreen(){
-        System.out.print("Welcome to LedgeMaxxer! Thank you for using our service. \n" +
+    public static void HomeScreen() throws InterruptedException {
+        System.out.print("\nWelcome to LedgeMaxxer! Thank you for using our service. \n" +
                 "Please enter a character that corresponds with one of the options below.\n" +
                 "D) Add Deposit\n" +
                 "P) Make Payment(Debit)\n" +
@@ -18,6 +18,7 @@ public class Home {
                 "Enter here: ");
 
         String ans = s.nextLine();
+
         switch (ans.toUpperCase()){
             case "D":
                 AddDeposit();
@@ -31,7 +32,9 @@ public class Home {
             case "X":
                 Exit();
             default:
-                System.out.println("Sorry! We do not have that option. Please input another character.");
+                Thread.sleep(400);
+                System.out.println("\nSorry! We do not have that option. Please input another character.");
+                Thread.sleep(700);
                 HomeScreen();
         }
     }
