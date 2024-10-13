@@ -55,7 +55,7 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public void display(){
-        System.out.println(date +" | "+ hour+" | " + description+" | " + vendor+" | " + amount);
+    public String display(){
+        return date +" | "+ hour+" | " + description+" | " + vendor+" | " + amount;
     }
 }
