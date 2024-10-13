@@ -23,12 +23,16 @@ public class Deposit {
                 "\nIf using a custom date and time have please have that ready as well.");
 
         String description = ans("\nPlease enter a description for your deposit: ");
+        inputerCheck(description);
 
         String vendor = ans("\nPlease enter the vendor for your deposit");
+        inputerCheck(vendor);
 
         String amount = ans("Please enter the amount for your deposit");
+        inputerCheck(amount);
 
-        String dt = ans("\nWould you like to use a custom date and time for this deposit? Enter yes or no: ").toUpperCase();
+        String dt = ans("\nWould you like to use a custom date and time for this deposit? Enter yes or no: ");
+        inputerCheck(dt);
 
         LocalDate date = LocalDate.now() ;
         String dateString = dateFormat(date);
@@ -41,21 +45,24 @@ public class Deposit {
         Transaction x = new Transaction(dateString,hourString,description,vendor,amount);
         x.display();
 
-        if (dt.equals("YES")) {
+        if (dt.equalsIgnoreCase("YES")) {
             String cd = ans("\nPlease enter the custom date for your deposit in MM-DD-YYYY format: ");
+            inputerCheck(cd);
             LocalDate custDate = LocalDate.parse(cd);
             String customDate = dateFormat(custDate);
 
             String ct = ans("\nPlease enter the custom time for your deposit in HH:MM format: ");
+            inputerCheck(ct);
             LocalTime custTime = LocalTime.parse(ct);
             String customTime = timeFormat(custTime);
+
         }
 
 
-        FileWriter fr = new FileWriter("transactions.csv");
+        FileWriter fr = new FileWriter("transactions.csv", true);
         BufferedWriter br = new BufferedWriter(fr);
-
-
+        br.write(x.display());
+        br.close();
 
     }
     public static String timeFormat(LocalTime x){
@@ -66,5 +73,14 @@ public class Deposit {
     public static String dateFormat(LocalDate x){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return x.format(formatter);
+    }
+
+    public static void inputerCheck(String input) throws IOException, InterruptedException {
+        if(input.equalsIgnoreCase("H")){
+            HomeScreen();
+        }else if(input.equalsIgnoreCase("x")){
+            Exit();
+        }
+
     }
 }
