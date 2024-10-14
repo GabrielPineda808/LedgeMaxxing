@@ -28,13 +28,13 @@ public class Deposit {
             DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-M-d");
 
             while(true){
-                String description = ans("\nPlease enter a description for your deposit: ");
+                String description = ans("\nPlease enter a DESCRIPTION for your deposit: ");
                 inputChecker(description);
 
-                String vendor = ans("\nPlease enter the vendor for your deposit");
+                String vendor = ans("\nPlease enter the VENDOR for your deposit");
                 inputChecker(vendor);
 
-                String amount = ans("\nPlease enter the amount for your deposit");
+                String amount = ans("\nPlease enter the AMOUNT for your deposit");
                 inputChecker(amount);
 
                 String dt = ans("\nWould you like to use a custom date and time for this deposit? Enter yes or no: ");
@@ -51,12 +51,12 @@ public class Deposit {
 
 
                 if (dt.equalsIgnoreCase("YES")) {
-                    String cd = ans("\nPlease enter the custom date for your deposit in YYYY-MM-DD format: ");
+                    String cd = ans("\nPlease enter the CUSTOM DATE for your deposit in YYYY-MM-DD format: ");
                     inputChecker(cd);
                     LocalDate customDate = LocalDate.parse(cd,dateFormatter);
 
 
-                    String ct = ans("\nPlease enter the custom time for your deposit in HH:MM format: ") ;
+                    String ct = ans("\nPlease enter the CUSTOM TIME for your deposit in HH:MM format: ") ;
                     inputChecker(ct);
                     LocalTime customTime = LocalTime.parse(ct+ ":01",hourFormat);
 
@@ -92,4 +92,5 @@ public class Deposit {
         }
 
     }
+
 }
