@@ -6,9 +6,22 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import static com.pluralsight.Deposit.inputChecker;
+import static com.pluralsight.Home.HomeScreen;
 import static com.pluralsight.Home.ans;
 
 public class LedgerScreen {
+    static FileReader fr;
+
+    static {
+        try {
+            fr = new FileReader("transactions.csv");
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    static BufferedReader br = new BufferedReader(fr);
+    static String input ;
     public static void main(String[] args) throws InterruptedException, IOException {
         Ledger();
     }
@@ -28,9 +41,10 @@ public class LedgerScreen {
 
         switch (choice) {
                 case "A":
-                    Entries(choice);
+                    allEntries();
                     break;
                 case "D":
+                    allDeposits();
                     break;
                 case "P":
                     break;
@@ -44,12 +58,29 @@ public class LedgerScreen {
         }
     }
 
-    public static void Entries(String x) throws IOException {
-        FileReader fr = new FileReader("transactions.csv");
-        BufferedReader br = new BufferedReader(fr);
-        String input ;
+    public static void allEntries() throws IOException, InterruptedException {
+
         while((input= br.readLine()) != null) {
             System.out.println(input);
         }
+        String another = ans("Would you like to run another report? ");
+        if(another.equalsIgnoreCase("yes")){
+            Ledger();
+        }else {
+            HomeScreen();
+        }
+
     }
+    public static void allDeposits() throws IOException {
+        while((input= br.readLine()) != null) {
+            String[] tran = input.split(" \\| ");
+
+            Transaction x = new Transaction(tran[0],tran[1],tran[2],tran[3],tran[4]);
+            if(x.getAmount().contains("-")){
+                System.out.println(x.display());
+            }
+        }
+
+    }
+
 }
