@@ -23,7 +23,7 @@ public class Deposit {
                 "\nIf using a custom date and time have please have that ready as well.");
 
         try{
-            DateTimeFormatter hourFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
+            DateTimeFormatter hourFormat = DateTimeFormatter.ofPattern("hh:mm:ss");
 
             DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-M-d");
 
@@ -56,7 +56,7 @@ public class Deposit {
                     LocalDate customDate = LocalDate.parse(cd,dateFormatter);
 
 
-                    String ct = ans("\nPlease enter the CUSTOM TIME for your deposit in HH:MM format: ") ;
+                    String ct = ans("\nPlease enter the CUSTOM TIME for your deposit in HH:MM military time format: ") ;
                     inputChecker(ct);
                     LocalTime customTime = LocalTime.parse(ct+ ":01",hourFormat);
 
