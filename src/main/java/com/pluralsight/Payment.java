@@ -45,7 +45,6 @@ public class Payment {
                 LocalDate date = LocalDate.now() ;
                 String dateString = date.format(dateFormatter);
 
-
                 LocalTime time = LocalTime.now();
                 String hourString = time.format(hourFormat);
 
