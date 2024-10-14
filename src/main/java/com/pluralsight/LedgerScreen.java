@@ -10,18 +10,7 @@ import static com.pluralsight.Home.HomeScreen;
 import static com.pluralsight.Home.ans;
 
 public class LedgerScreen {
-    static FileReader fr;
 
-    static {
-        try {
-            fr = new FileReader("transactions.csv");
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    static BufferedReader br = new BufferedReader(fr);
-    static String input ;
     public static void main(String[] args) throws InterruptedException, IOException {
         Ledger();
     }
@@ -47,6 +36,7 @@ public class LedgerScreen {
                     allDeposits();
                     break;
                 case "P":
+                    allPayments();
                     break;
                 case "R":
                     break;
@@ -60,26 +50,55 @@ public class LedgerScreen {
 
     public static void allEntries() throws IOException, InterruptedException {
 
+        FileReader fr= new FileReader("transactions.csv");
+        BufferedReader br = new BufferedReader(fr);
+        String input;
+
         while((input= br.readLine()) != null) {
-            System.out.println(input);
+            System.out.println(input + "\n");
         }
+        runReport();
+    }
+
+    public static void allPayments() throws IOException, InterruptedException {
+        FileReader fr= new FileReader("transactions.csv");
+        BufferedReader br = new BufferedReader(fr);
+        String input;
+
+        while((input= br.readLine()) != null) {
+            String[] tran = input.split(" \\| ");
+
+            Transaction x = new Transaction(tran[0],tran[1],tran[2],tran[3],tran[4]);
+            if(x.getAmount().contains("-")){
+                System.out.println(x.display() + "\n");
+            }
+        }
+        runReport();
+
+    }
+    public static void runReport() throws IOException, InterruptedException {
+
         String another = ans("Would you like to run another report? ");
         if(another.equalsIgnoreCase("yes")){
             Ledger();
         }else {
             HomeScreen();
         }
-
     }
-    public static void allDeposits() throws IOException {
+    public static void allDeposits() throws IOException, InterruptedException {
+        FileReader fr= new FileReader("transactions.csv");
+        BufferedReader br = new BufferedReader(fr);
+        String input;
+
         while((input= br.readLine()) != null) {
             String[] tran = input.split(" \\| ");
 
             Transaction x = new Transaction(tran[0],tran[1],tran[2],tran[3],tran[4]);
-            if(x.getAmount().contains("-")){
-                System.out.println(x.display());
+            if(!x.getAmount().contains("-")){
+                System.out.println(x.display()+"\n");
             }
         }
+        runReport();
 
     }
 
