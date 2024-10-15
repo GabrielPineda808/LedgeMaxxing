@@ -23,7 +23,7 @@ public class Deposit {
                 "\nIf using a custom date and time have please have that ready as well.");
 
         try{
-            DateTimeFormatter hourFormat = DateTimeFormatter.ofPattern("hh:mm:ss");
+            DateTimeFormatter hourFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
 
             DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-M-d");
 
