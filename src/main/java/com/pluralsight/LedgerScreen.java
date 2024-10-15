@@ -7,6 +7,7 @@ import java.io.IOException;
 import static com.pluralsight.Deposit.inputChecker;
 import static com.pluralsight.Home.HomeScreen;
 import static com.pluralsight.Home.ans;
+import static com.pluralsight.Reports.reports;
 
 public class LedgerScreen {
 
@@ -39,6 +40,7 @@ public class LedgerScreen {
                     allPayments();
                     break;
                 case "R":
+                    reports();
                     break;
             case"H":
                 HomeScreen();
