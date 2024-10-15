@@ -82,7 +82,7 @@ public class LedgerScreen {
     }
     public static void runReport() throws IOException, InterruptedException {
 
-        String another = ans("Would you like to run another report? ");
+        String another = ans("\nWould you like to view another option? ");
         if(another.equalsIgnoreCase("yes")){
             Ledger();
         }else {
