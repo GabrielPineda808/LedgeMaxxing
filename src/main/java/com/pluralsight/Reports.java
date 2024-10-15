@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 
 import static com.pluralsight.Deposit.inputChecker;
+import static com.pluralsight.Home.HomeScreen;
 import static com.pluralsight.Home.ans;
 import static com.pluralsight.LedgerScreen.Ledger;
 
@@ -53,7 +54,7 @@ public class Reports {
         }
     }
 
-    public static void monthToDate() throws IOException {
+    public static void monthToDate() throws IOException, InterruptedException {
         FileReader fr= new FileReader("transactions.csv");
         BufferedReader br = new BufferedReader(fr);
         String input;
@@ -62,12 +63,13 @@ public class Reports {
             Transaction x = new Transaction(user[0],user[1],user[2],user[3],user[4]);
             String[] userTime= x.getDate().split("-");
             if(userTime[0].contains(year) && userTime[1].contains(month)){
-                System.out.println(x.display());
+                System.out.println(x.display()+ "\n");
             }
         }
+        option();
     }
 
-    public static void previousMonth() throws IOException {
+    public static void previousMonth() throws IOException, InterruptedException {
         FileReader fr= new FileReader("transactions.csv");
         BufferedReader br = new BufferedReader(fr);
         String input;
@@ -76,11 +78,12 @@ public class Reports {
             Transaction x = new Transaction(user[0],user[1],user[2],user[3],user[4]);
             String[] userTime= x.getDate().split("-");
             if(userTime[0].contains(year) && userTime[1].contains(pMonth)){
-                System.out.println(x.display());
+                System.out.println(x.display()+ "\n");
             }
         }
+        option();
     }
-    public static void ytd() throws IOException {
+    public static void ytd() throws IOException, InterruptedException {
         FileReader fr= new FileReader("transactions.csv");
         BufferedReader br = new BufferedReader(fr);
         String input;
@@ -89,12 +92,13 @@ public class Reports {
             Transaction x = new Transaction(user[0],user[1],user[2],user[3],user[4]);
             String[] userTime= x.getDate().split("-");
             if(userTime[0].contains(year)){
-                System.out.println(x.display());
+                System.out.println(x.display()+ "\n");
             }
         }
+        option();
     }
 
-    public static void previousYear() throws IOException {
+    public static void previousYear() throws IOException, InterruptedException {
         FileReader fr= new FileReader("transactions.csv");
         BufferedReader br = new BufferedReader(fr);
         String input;
@@ -103,13 +107,14 @@ public class Reports {
             Transaction x = new Transaction(user[0],user[1],user[2],user[3],user[4]);
             String[] userTime= x.getDate().split("-");
             if(userTime[0].contains(pYear)){
-                System.out.println(x.display());
+                System.out.println(x.display()+ "\n");
             }
         }
+        option();
     }
-    public static void byVendor() throws IOException {
+    public static void byVendor() throws IOException, InterruptedException {
 
-        String v = ans("Please enter the VENDOR: ");
+        String v = ans("\nPlease enter the VENDOR: ");
         FileReader fr= new FileReader("transactions.csv");
         BufferedReader br = new BufferedReader(fr);
         String input;
@@ -118,8 +123,26 @@ public class Reports {
             Transaction x = new Transaction(user[0],user[1],user[2],user[3],user[4]);
 
             if(x.getVendor().toUpperCase().contains(v.toUpperCase())){
-                System.out.println(x.display());
+                System.out.println(x.display()+ "\n");
             }
+        }
+        option();
+    }
+
+    public static void option() throws IOException, InterruptedException {
+
+        String another = ans("\nWould you like to view another report? Enter yes or no: ");
+        switch (another.toUpperCase()){
+            case "YES":
+                reports();
+                break;
+            case "NO":
+                Ledger();
+                break;
+            default:
+                System.out.println("\nPlease enter a valid option and try again.");
+                option();
+
         }
     }
 }
