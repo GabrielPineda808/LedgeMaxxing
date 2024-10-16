@@ -1,8 +1,6 @@
 package com.pluralsight;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 import static com.pluralsight.Deposit.inputChecker;
 import static com.pluralsight.Home.HomeScreen;
@@ -10,10 +8,8 @@ import static com.pluralsight.Home.ans;
 import static com.pluralsight.Reports.reports;
 
 public class LedgerScreen {
+    static String input;
 
-    public static void main(String[] args) throws InterruptedException, IOException {
-        Ledger();
-    }
     public static void Ledger() throws InterruptedException, IOException {
         Thread.sleep(500);
 
@@ -54,9 +50,9 @@ public class LedgerScreen {
 
     public static void allEntries() throws IOException, InterruptedException {
 
-        FileReader fr= new FileReader("transactions.csv");
-        BufferedReader br = new BufferedReader(fr);
-        String input;
+
+        BufferedReader br = new BufferedReader(fr());
+
 
         while((input= br.readLine()) != null) {
             System.out.println(input + "\n");
@@ -65,9 +61,7 @@ public class LedgerScreen {
     }
 
     public static void allPayments() throws IOException, InterruptedException {
-        FileReader fr= new FileReader("transactions.csv");
-        BufferedReader br = new BufferedReader(fr);
-        String input;
+        BufferedReader br = new BufferedReader(fr());
 
         while((input= br.readLine()) != null) {
             String[] tran = input.split(" \\| ");
@@ -83,16 +77,22 @@ public class LedgerScreen {
     public static void runReport() throws IOException, InterruptedException {
 
         String another = ans("\nWould you like to view another option? ");
-        if(another.equalsIgnoreCase("yes")){
-            Ledger();
-        }else {
-            HomeScreen();
+        inputChecker(another);
+        switch (another.toUpperCase()){
+            case "YES":
+                Ledger();
+                break;
+            case"NO":
+                HomeScreen();
+                break;
+            default:
+                System.out.println("That is not a valid option. Please enter again.");
+                runReport();
         }
     }
     public static void allDeposits() throws IOException, InterruptedException {
-        FileReader fr= new FileReader("transactions.csv");
-        BufferedReader br = new BufferedReader(fr);
-        String input;
+
+        BufferedReader br = new BufferedReader(fr());
 
         while((input= br.readLine()) != null) {
             String[] tran = input.split(" \\| ");
@@ -103,7 +103,10 @@ public class LedgerScreen {
             }
         }
         runReport();
+    }
 
+    public static InputStreamReader fr() throws FileNotFoundException {
+        return new FileReader("transactions.csv");
     }
 
 }
