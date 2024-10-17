@@ -55,7 +55,7 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public String display(){
+    public String display(){ // displays the object
         return date +" | "+ hour+" | " + description+" | " + vendor+" | " + amount;
     }
 }

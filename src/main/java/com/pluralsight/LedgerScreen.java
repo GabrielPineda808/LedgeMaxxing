@@ -11,7 +11,6 @@ public class LedgerScreen {
     static String input;
 
     public static void Ledger() throws InterruptedException, IOException {
-        Thread.sleep(500);
 
         System.out.println("\nYou are on the Ledger Screen!" +
                 "\nEnter HOME (Return to home) or EXIT (Exit app) at any time!\n");
@@ -49,12 +48,10 @@ public class LedgerScreen {
 
     public static void allEntries() throws IOException, InterruptedException {
 
-
         BufferedReader br = new BufferedReader(fr());
 
-
         while((input= br.readLine()) != null) {
-            System.out.println(input + "\n");
+            System.out.println(input + "\n"); // displays all entries after being read
         }
         runReport();
     }
@@ -66,7 +63,7 @@ public class LedgerScreen {
             String[] tran = input.split(" \\| ");
 
             Transaction x = new Transaction(tran[0],tran[1],tran[2],tran[3],tran[4]);
-            if(x.getAmount().contains("-")){
+            if(x.getAmount().contains("-")){ //checks to see if the amojnt is negative aka a payment and then prints it
                 System.out.println(x.display() + "\n");
             }
         }
@@ -75,7 +72,7 @@ public class LedgerScreen {
     }
     public static void runReport() throws IOException, InterruptedException {
 
-        String another = ans("\nWould you like to view another option? ");
+        String another = ans("\nWould you like to view another option? "); // option to run another report
         inputChecker(another);
         switch (another.toUpperCase()){
             case "YES":
@@ -97,7 +94,7 @@ public class LedgerScreen {
             String[] tran = input.split(" \\| ");
 
             Transaction x = new Transaction(tran[0],tran[1],tran[2],tran[3],tran[4]);
-            if(!x.getAmount().contains("-")){
+            if(!x.getAmount().contains("-")){ // if the amount is not negative aka a deposit it is printed
                 System.out.println(x.display()+"\n");
             }
         }
@@ -105,7 +102,7 @@ public class LedgerScreen {
     }
 
     public static InputStreamReader fr() throws FileNotFoundException {
-        return new FileReader("transactions.csv");
+        return new FileReader("transactions.csv"); // reads the transaction csv eveytime it is called
     }
 
 }
