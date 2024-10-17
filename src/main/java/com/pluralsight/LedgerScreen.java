@@ -14,14 +14,14 @@ public class LedgerScreen {
         Thread.sleep(500);
 
         System.out.println("\nYou are on the Ledger Screen!" +
-                "\nEnter h (Return to home) or x (Exit app) at any time!");
+                "\nEnter HOME (Return to home) or EXIT (Exit app) at any time!\n");
 
-        System.out.println("Please enter one of the following options: " +
+        System.out.println("Please enter one of the following options: \n" +
                 "\nA ) All - display all entries" +
                 "\nD ) Deposits - display all deposits only" +
                 "\nP ) Payments - display all payments only" +
                 "\nR ) Reports - view default reports or custom reports" +
-                "\nH ) Return to Home");
+                "\nH ) Return to Home\n");
         String choice = ans("\nEnter here:").toUpperCase();
         inputChecker(choice);
 
@@ -42,7 +42,6 @@ public class LedgerScreen {
                 HomeScreen();
                 break;
                 default:
-                    Thread.sleep(300);
                     System.out.println("\nThat is not a valid option. Please enter a correct option.");
                     Ledger();
         }
@@ -86,7 +85,7 @@ public class LedgerScreen {
                 HomeScreen();
                 break;
             default:
-                System.out.println("That is not a valid option. Please enter again.");
+                System.out.println("\nThat is not a valid option. Please enter again.");
                 runReport();
         }
     }
