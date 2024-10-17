@@ -1,0 +1,17 @@
+DATE | TIME | DESCRIPTION | VENDOR | AMOUNT
+2025-01-18 | 12:00:01 | Rent | Briana | -1050
+2025-01-18 | 12:00:01 | Rent | Gabriel | -1050
+2025-01-18 | 12:00:01 | Utilities | Apartment Complex | -200
+2024-03-14 | 17:41:26 | ytd test1 | test | 1000
+2024-05-14 | 17:41:26 | ytd test | test | 1000
+2024-09-14 | 17:41:26 | Sept prev test | test | 1000
+2024-09-14 | 17:41:36 | Sept prev month test2 | test2 | 123
+2023-10-14 | 17:41:36 | 2023 test2 | test2 | 123
+2023-10-14 | 17:41:36 | 2023 test | test2 | 123
+2024-10-14 | 17:41:36 | oct 2024 mtd test2 | test2 | 123
+2024-10-14 | 17:41:36 | oct 2024 mtd test | test2 | 123
+2024-10-15 | 17:15:12 | deposit test | deposit | 100
+2024-10-15 | 17:15:37 | payment test | payment | -100
+2024-10-17 | 08:26:39 | test | test | 100.0
+2024-10-17 | 09:11:51 | testing app | testing app | 100.50
+2020-12-12 | 13:13:01 | testing | test | -500
