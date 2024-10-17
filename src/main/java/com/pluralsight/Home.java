@@ -8,41 +8,41 @@ import static com.pluralsight.Payment.MakePayment;
 import static com.pluralsight.Quit.Exit;
 
 public class Home {
-    static Scanner s = new Scanner(System.in);
+    static Scanner s = new Scanner(System.in); //initializing scanner
     public static void HomeScreen() throws InterruptedException, IOException {
 
         String ans = ans("\nWelcome to LedgeMaxxer! Thank you for using our service. \n" +
-                "Please enter a character that corresponds with one of the options below.\n" +
-                "D) Add Deposit\n" +
+                "\nPlease enter a character that corresponds with one of the options below.\n" +
+                "\nD) Add Deposit\n" +
                 "P) Make Payment(Debit)\n" +
                 "L) Ledger\n" +
                 "X) Exit\n" +
-                "Enter here: ");
+                "\nEnter here: "); // displaying home screen and prompting user input
 
-        switch (ans.toUpperCase()){
+        switch (ans.toUpperCase()){ //switch case (if statements) that will go to a screen based on user input
             case "D":
-                AddDeposit();
+                AddDeposit(); // calls on deposit screen method to enter deposit
                 break;
             case "P":
-                MakePayment();
+                MakePayment(); // calls on payment screen method to enter payment
                 break;
             case "L":
-                Ledger();
+                Ledger(); // calls on ledeger screen method;
                 break;
             case "X":
-                Exit();
+                Exit(); // calls on method that exits program.
             default:
-                Thread.sleep(400);
+
                 System.out.println("\nSorry! We do not have that option. Please input another character.");
-                Thread.sleep(700);
-                HomeScreen();
+
+                HomeScreen(); // if the user input does not have a method that corresponds it will call on the home screen so the user can see their options and try again.
                 break;
         }
     }
 
-    public static String ans(String m){
+    public static String ans(String m){ //anser method that will take in the users next line in console that can be reused whenever a string is needed.
         System.out.println(m);
-        return s.nextLine();
+        return s.nextLine(); // takes next user input
     }
 
 }
