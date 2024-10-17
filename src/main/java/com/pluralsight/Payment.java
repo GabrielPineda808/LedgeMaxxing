@@ -109,7 +109,7 @@ public class Payment {
         inputChecker(customeDate);
         while(!validDate(customeDate)){ // If the date is not valid we let the user know and try agina
             System.out.println("\nThat is not a proper date format. Please try again.");
-            customeDate = ans("\nPlease enter the CUSTOM DATE for your"+message+" in YYYY-MM-DD format: ");
+            customeDate = ans("\nEnter date: ");
             if(validDate(customeDate)){
                 break;
             }
