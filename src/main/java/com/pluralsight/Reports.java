@@ -21,16 +21,16 @@ public class Reports {
 
     public static void reports() throws IOException, InterruptedException {
         System.out.println("\nYou are on the Reports Screen!" +
-                "\nEnter h (Return to home) or x (Exit app) at any time!");
+                "\nEnter h (Return to home) or x (Exit app) at any time!\n");
 
-        System.out.println("Please enter one of the following options: " +
+        System.out.println("\nPlease enter one of the following options: \n" +
                 "\n1 ) Month to Date" +
                 "\n2 ) Previous Month" +
                 "\n3 ) Year to Date" +
                 "\n4 ) Previous Year" +
                 "\n5 ) Search by Vendor" +
                 "\n0 ) Return to Ledger Screen");
-        String choice = ans("\nEnter here:").toUpperCase();
+        String choice = ans("\nEnter here: ").toUpperCase();
         inputChecker(choice);
         switch (choice){
             case "1":
@@ -52,7 +52,7 @@ public class Reports {
                 Ledger();
                 break;
             default:
-                System.out.println("That is a not a valid report option. Please try again.");
+                System.out.println("\nThat is a not a valid report option. Please try again.\n");
                 reports();
 
         }
@@ -67,7 +67,7 @@ public class Reports {
             Transaction x = new Transaction(user[0],user[1],user[2],user[3],user[4]);
             String[] userTime= x.getDate().split("-");
             if(userTime[0].contains(year) && userTime[1].contains(month)){
-                System.out.println(x.display()+ "\n");
+                System.out.println("\n"+ x.display()+ "\n");
             }
         }
         option();
@@ -82,7 +82,7 @@ public class Reports {
             Transaction x = new Transaction(user[0],user[1],user[2],user[3],user[4]);
             String[] userTime= x.getDate().split("-");
             if(userTime[0].contains(year) && userTime[1].contains(pMonth)){
-                System.out.println(x.display()+ "\n");
+                System.out.println("\n"+ x.display()+ "\n");
             }
         }
         option();
@@ -96,7 +96,7 @@ public class Reports {
             Transaction x = new Transaction(user[0],user[1],user[2],user[3],user[4]);
             String[] userTime= x.getDate().split("-");
             if(userTime[0].contains(year)){
-                System.out.println(x.display()+ "\n");
+                System.out.println("\n"+ x.display()+ "\n");
             }
         }
         option();
@@ -111,7 +111,7 @@ public class Reports {
             Transaction x = new Transaction(user[0],user[1],user[2],user[3],user[4]);
             String[] userTime= x.getDate().split("-");
             if(userTime[0].contains(pYear)){
-                System.out.println(x.display()+ "\n");
+                System.out.println("\n"+ x.display()+ "\n");
             }
         }
         option();
@@ -121,15 +121,15 @@ public class Reports {
         String v = ans("\nPlease enter the VENDOR: ");
 
         BufferedReader br = new BufferedReader(fr());
-        
-        while((input = br.readLine())!= null){
-            String[] user = input.split("\\|");
-            Transaction x = new Transaction(user[0],user[1],user[2],user[3],user[4]);
 
-            if(x.getVendor().toUpperCase().contains(v.toUpperCase())){
-                System.out.println(x.display()+ "\n");
+            while ((input = br.readLine()) != null) {
+                String[] user = input.split("\\|");
+                Transaction x = new Transaction(user[0], user[1], user[2], user[3], user[4]);
+
+                if (x.getVendor().toUpperCase().contains(v.toUpperCase())) {
+                    System.out.println("\n" + x.display() + "\n");
+                }
             }
-        }
         option();
     }
 
@@ -146,7 +146,7 @@ public class Reports {
                 Ledger();
                 break;
             default:
-                System.out.println("\nPlease enter a valid option and try again.");
+                System.out.println("\nPlease enter a valid option and try again.\n");
                 option();
 
         }
