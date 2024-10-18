@@ -27,8 +27,7 @@ public class Payment {
 
         System.out.println("\n-----------"+message.toUpperCase()+"-----------");
 
-        System.out.println("\nYou are on the make "+message+" screen!" +
-                "\nEnter HOME (Return to home) or EXIT (Exit app) at any time!");
+        System.out.println("\nEnter HOME (Return to home) or EXIT (Exit app) at any time!");
 
         System.out.println("\nPlease have the "+message+" description, vendor, and amount at the ready." +
                 "\nIf using a custom date and time have please have that ready as well.");

@@ -14,8 +14,7 @@ public class LedgerScreen {
 
         System.out.println("\n-----------LEDGER-----------");
 
-        System.out.println("\nYou are on the Ledger Screen!" +
-                "\nEnter HOME (Return to home) or EXIT (Exit app) at any time!\n");
+        System.out.println("\nEnter HOME (Return to home) or EXIT (Exit app) at any time!\n");
 
         System.out.println("Please enter one of the following options: \n" +
                 "\nA ) All - display all entries" +

@@ -6,7 +6,9 @@ import static com.pluralsight.Home.HomeScreen;
 public class LedgeMaxxing {
     public static void main(String[] args) throws InterruptedException, IOException {
 
-        System.out.println("-----------\nWELCOME TO LEDGEMAXXING-----------");
+        System.out.println("\n-----------WELCOME TO LEDGEMAXXING-----------");
+
+        System.out.println("\nWelcome to LedgeMaxxer! Thank you for using our service.");
 
         if(new File("transactions.csv").isFile()){ // checking to see if the user has ran the program before therefore creating a the tranasction csv. Run home screen if thet have
             HomeScreen(); // calls on the homescreen to start programs

@@ -26,8 +26,7 @@ public class Reports {
 
         System.out.println("\n-----------REPORTS-----------");
 
-        System.out.println("\nYou are on the Reports Screen!" +
-                "\nEnter HOME (Return to home) or EXIT (Exit app) at any time!\n");
+        System.out.println("\nEnter HOME (Return to home) or EXIT (Exit app) at any time!\n");
 
         System.out.println("\nPlease enter one of the following options: \n" +
                 "\n1 ) Month to Date" +

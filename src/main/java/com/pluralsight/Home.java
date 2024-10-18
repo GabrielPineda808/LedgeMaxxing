@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import static com.pluralsight.Deposit.AddDeposit;
+import static com.pluralsight.Deposit.inputChecker;
 import static com.pluralsight.LedgerScreen.Ledger;
 import static com.pluralsight.Payment.MakePayment;
 import static com.pluralsight.Quit.Exit;
@@ -13,13 +14,13 @@ public class Home {
 
         System.out.println("\n-----------HOME-----------");
 
-        String ans = ans("\nWelcome to LedgeMaxxer! Thank you for using our service. \n" +
-                "\nPlease enter a character that corresponds with one of the options below.\n" +
+        String ans= ans("\nPlease enter a character that corresponds with one of the options below.\n" +
                 "\nD) Add Deposit\n" +
                 "P) Make Payment(Debit)\n" +
                 "L) Ledger\n" +
                 "X) Exit\n" +
                 "\nEnter here: "); // displaying home screen and prompting user input
+        inputChecker(ans);
 
         switch (ans.toUpperCase()){ //switch case (if statements) that will go to a screen based on user input
             case "D":
