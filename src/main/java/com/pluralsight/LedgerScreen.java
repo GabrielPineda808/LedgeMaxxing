@@ -12,6 +12,8 @@ public class LedgerScreen {
 
     public static void Ledger() throws InterruptedException, IOException {
 
+        System.out.println("\n-----------LEDGER-----------");
+
         System.out.println("\nYou are on the Ledger Screen!" +
                 "\nEnter HOME (Return to home) or EXIT (Exit app) at any time!\n");
 

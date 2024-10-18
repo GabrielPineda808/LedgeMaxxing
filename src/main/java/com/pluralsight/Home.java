@@ -11,6 +11,8 @@ public class Home {
     static Scanner s = new Scanner(System.in); //initializing scanner
     public static void HomeScreen() throws InterruptedException, IOException {
 
+        System.out.println("\n-----------HOME-----------");
+
         String ans = ans("\nWelcome to LedgeMaxxer! Thank you for using our service. \n" +
                 "\nPlease enter a character that corresponds with one of the options below.\n" +
                 "\nD) Add Deposit\n" +
@@ -32,7 +34,6 @@ public class Home {
             case "X":
                 Exit(); // calls on method that exits program.
             default:
-
                 System.out.println("\nSorry! We do not have that option. Please input another character.");
 
                 HomeScreen(); // if the user input does not have a method that corresponds it will call on the home screen so the user can see their options and try again.
@@ -42,7 +43,6 @@ public class Home {
 
     public static String ans(String m){ //anser method that will take in the users next line in console that can be reused whenever a string is needed.
         System.out.println(m);
-        return s.nextLine(); // takes next user input
+        return s.nextLine().trim(); // takes next user input
     }
-
 }

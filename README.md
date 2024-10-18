@@ -12,7 +12,7 @@ can later create a report based upon.
 - ### [LedgeMaxxing](https://github.com/GabrielPineda808/LedgeMaxxing)
 
 ## Image of the APP
-#### -----------Home SCREEN-----------
+#### -----------HOME SCREEN-----------
 ![HomeScreen](LedgeMaxxingSS%2FCapture.PNG)
 
 #### -----------DEPOSIT SCREEN-----------
